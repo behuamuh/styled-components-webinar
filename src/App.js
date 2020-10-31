@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import styled, { createGlobalStyle  } from 'styled-components'
+import Page from './components/Page';
 
-function App() {
+function App({ className }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper className={className}>
+      <StyledPage />
+      <GlobalStyles />
+    </Wrapper>
   );
 }
 
 export default App;
+
+const Wrapper = styled.div`
+  background-color: lightgrey;
+  min-height: 100vh;
+  display: flex;
+`;
+
+const StyledPage = styled(Page)`
+  margin-top: 50px;
+`;
+
+const GlobalStyles = createGlobalStyle`
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+`;
